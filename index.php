@@ -44,7 +44,6 @@
 												<th scope="col">CANTIDAD VENDIDA</th>
 												<th scope="col">PRECIO UNITARIO</th>
                                                 <th scope="col">TOTAL VENTA</th>
-												<th scope="col" colspan="2">ACCION</th>
 										</tr>
             <?php 
             while ($row = mysqli_fetch_assoc($resultado)) {

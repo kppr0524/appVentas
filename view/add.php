@@ -7,7 +7,8 @@ $cantidad_venta = $_POST['cantidad_venta'];
 $precio_unidad = $_POST['precio_unidad'];
 
 if ($venta != null || $ != null) {
-	$agregar = "select from ventas, marca, modelo (nombre_marca,nombre_modelo,cantidad_venta,precio_unidad) values('" . $nombre_marca . "','" . $nombre_modelo . "','" . $cantidad_venta . "','" . $precio_unidad . "')";
+	$agregar = "select from ventas, marca, modelo (nombre_marca,nombre_modelo,cantidad_venta,precio_unidad) 
+	values('" . $nombre_marca . "','" . $nombre_modelo . "','" . $cantidad_venta . "','" . $precio_unidad . "')";
 	$resultado = $conexion->query($agregar) or die("Error de Inserción" . mysqli_error($conexion));
 }
 

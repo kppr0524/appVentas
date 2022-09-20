@@ -1,19 +1,19 @@
 <?php
 require "../conexion/conexion.php";
 
-$id_mode = $_POST['id_modelo'];
+//lo creamos de forma diferente
 
-$consultaM = "SELECT id_modelo, nombre_modelo FROM modelo WHERE id_marca = '$id_marca'";
-$resultadoM = $mysqli->consultaM($consultaM);
-
-$html = "<option value="0">seleccionar modelo</option>";
-
-while ($rowM = $resultadoM->fetch_assoc()) {
+    $consultaM = "SELECT * FROM modelo";
+    $resultadoM = mysqli_query($conexion, $consultaM);
     
-    $html = "<option value='".$rowM['id_modelo']."'>".$rowM['nombre_modelo']."</option>";
-    
-}
-
-echo = $html
-
-?> 
+    if(isset($_GET['idModelo'])){
+        //print ("marca: " . $_GET['c']);
+        echo "<option selected disabled>Seleccione un modelo</option>";
+        while ($rowM = mysqli_fetch_array($resultadoM)) {
+            //print ('id modelo: ' . $rowM['id_modelo']);
+            if ($rowM['fk_marca'] == $_GET['idModelo']) {
+                echo "<option value='".$rowM['id_modelo']."'>".$rowM['nombre_modelo']."</option>";
+            }
+        }
+    }
+?>
